@@ -1,83 +1,290 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://polska2038.pl</loc>
+    <loc>https://polska2038.pl/</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/en</loc>
     <lastmod>2026-06-03</lastmod>
-  </url>
-  <url>
-    <loc>https://polska2038.pl/login</loc>
-    <lastmod>2026-06-03</lastmod>
-  </url>
-  <url>
-    <loc>https://polska2038.pl/mapa-talentow</loc>
-    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/technologia</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/technologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
-    <loc>https://polska2038.pl/reforma</loc>
+    <loc>https://polska2038.pl/en/technologia</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/technologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
-    <loc>https://polska2038.pl/reforma/dokumenty</loc>
+    <loc>https://polska2038.pl/mapa-talentow</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/mapa-talentow" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
-    <loc>https://polska2038.pl/reforma/en</loc>
+    <loc>https://polska2038.pl/en/mapa-talentow</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/mapa-talentow" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/dla-kogo</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/dla-kogo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
-    <loc>https://polska2038.pl/dla-federacji</loc>
+    <loc>https://polska2038.pl/en/dla-kogo</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/dla-kogo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/wyniki</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/wyniki" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/wyniki</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/wyniki" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/partnerzy</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/partnerzy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/partnerzy</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/partnerzy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/kontakt</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/kontakt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/kontakt</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/kontakt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/o-programie</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/o-programie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/o-programie</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/o-programie" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/dokumenty</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/reforma/dokumenty" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/reforma/dokumenty</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/reforma/dokumenty" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/system</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/system" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/system</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/system" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/filar/1</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/reforma/filar/1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/filar/2</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/reforma/filar/2" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/filar/3</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/reforma/filar/3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/reforma/filar/1</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/reforma/filar/1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/reforma/filar/2</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/reforma/filar/2" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/reforma/filar/3</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/reforma/filar/3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/materialy/executive-summary</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/materialy/briefing-media</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://polska2038.pl/reforma/materialy/roadmap-2026-2038</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
   </url>
   <url>
     <loc>https://polska2038.pl/polityka-prywatnosci</loc>
     <lastmod>2026-06-03</lastmod>
-  </url>
-  <url>
-    <loc>https://polska2038.pl/polityka-cookies</loc>
-    <lastmod>2026-06-03</lastmod>
-  </url>
-  <url>
-    <loc>https://polska2038.pl/regulamin</loc>
-    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.40</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/polityka-prywatnosci" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/en/polityka-prywatnosci</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.35</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/polityka-prywatnosci" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/polityka-cookies</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/polityka-cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/en/polityka-cookies</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/polityka-cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/regulamin</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polska2038.pl/en/regulamin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
   </url>
   <url>
     <loc>https://polska2038.pl/en/regulamin</loc>
     <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.50</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://polska2038.pl/regulamin" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://polska2038.pl/" />
+  </url>
+  <url>
+    <loc>https://polska2038.pl/login</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.10</priority>
+  </url>
+  <url>
+    <loc>https://polska2038.pl/en/login</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.10</priority>
   </url>
 </urlset>

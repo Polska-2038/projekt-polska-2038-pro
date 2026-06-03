@@ -15,6 +15,14 @@ Techniczne podstawy są w repozytorium (meta per strona, sitemap, JSON-LD, hrefl
 | SPA: meta przy nawigacji | `src/components/SeoManager.jsx` |
 | Przekierowanie www → bez www | `vercel.json` |
 
+## Błąd „robots.txt — błędy krytyczne” w Search Console
+
+1. **Otwórz raport:** Ustawienia → Indeksowanie → robots.txt → **OTWÓRZ RAPORT** — zobacz dokładny komunikat (linia / host).
+2. **Sprawdź na żywo:** https://polska2038.pl/robots.txt i https://polska2038.pl/sitemap.xml (oba muszą być **200**, nie HTML strony głównej).
+3. Po deployu: w raporcie robots.txt kliknij **Sprawdź ponownie** / poczekaj 24–48 h.
+4. **„2 pliki”** = zwykle `polska2038.pl` + `www.polska2038.pl` — www przekierowuje na wersję bez www; to OK po poprawce.
+5. **Nie używaj** zakładki Usunięcia do blokowania całej domeny.
+
 ## 1. Google Search Console (obowiązkowe)
 
 1. Wejdź na [Google Search Console](https://search.google.com/search-console).

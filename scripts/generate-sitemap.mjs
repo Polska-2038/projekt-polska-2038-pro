@@ -26,7 +26,10 @@ function hreflangLinks(route) {
     );
   }
   if (seo.alternatePl || seo.alternateEn) {
-    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}" />`);
+    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}/" />`);
+  }
+  if (route === '/' && !seo.alternatePl) {
+    lines.push(`    <xhtml:link rel="alternate" hreflang="pl" href="${SITE_URL}/" />`);
   }
   return lines.join('\n');
 }

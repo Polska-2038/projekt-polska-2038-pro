@@ -311,7 +311,7 @@ export function getSeoForPath(pathname) {
 }
 
 export function buildCanonicalUrl(path) {
-  if (path === '/') return SITE_URL;
+  if (path === '/') return `${SITE_URL}/`;
   return `${SITE_URL}${path}`;
 }
 
@@ -412,7 +412,7 @@ export function injectSeoIntoHtml(html, pathname) {
     );
   }
   if (seo.alternatePl || seo.alternateEn) {
-    hreflangTags.push(`<link rel="alternate" hreflang="x-default" href="${escapeAttr(SITE_URL)}" />`);
+    hreflangTags.push(`<link rel="alternate" hreflang="x-default" href="${escapeAttr(`${SITE_URL}/`)}" />`);
   }
   out = out.replace(/<link rel="alternate" hreflang="[^"]*"[^>]*>\s*/gi, '');
   if (hreflangTags.length) {
