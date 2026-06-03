@@ -25,10 +25,10 @@ export default function DemoDisclaimer({ compact = false }) {
       aria-label={d.ariaLabel}
       className="border-b border-amber-500/25 bg-amber-950/30"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
         <div className="flex items-start gap-2 flex-1 min-w-0">
-          <Info size={16} className="text-amber-400 flex-shrink-0 mt-0.5" aria-hidden />
-          <p className="text-amber-100/90 text-[11px] sm:text-xs font-mono leading-relaxed">
+          <Info size={14} className="text-amber-400 flex-shrink-0 mt-0.5 hidden sm:block" aria-hidden />
+          <p className="text-amber-100/90 text-[10px] sm:text-[11px] font-mono leading-snug sm:leading-relaxed line-clamp-3 sm:line-clamp-2">
             <span className="font-bold text-amber-300 uppercase tracking-wide">{d.badge}</span>
             {' — '}
             {d.body}{' '}
@@ -37,7 +37,7 @@ export default function DemoDisclaimer({ compact = false }) {
             </Link>
           </p>
         </div>
-        <span className="text-amber-500/70 text-[10px] font-mono uppercase tracking-widest whitespace-nowrap">
+        <span className="hidden md:inline text-amber-500/70 text-[10px] font-mono uppercase tracking-widest whitespace-nowrap">
           {d.proBono}
         </span>
       </div>
