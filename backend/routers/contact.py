@@ -1,10 +1,13 @@
+import json
 import os
 import time
 import smtplib
 import traceback
 import logging
+import urllib.error
+import urllib.request
 from email.message import EmailMessage
-from typing import Dict, List
+from typing import Dict, List, Optional, Tuple
 
 import anyio
 from fastapi import APIRouter, Depends, HTTPException, Request
@@ -17,10 +20,10 @@ from schemas import ContactMessageIn, ContactMessageOut
 router = APIRouter()
 logger = logging.getLogger("polska2038.contact")
 
-# Recipients (internal admin only; prevents "spam gateway" behavior)
-STAKEHOLDERS: List[str] = [
-    "polska2038@proton.me",
-]
+def _stakeholder_recipients() -> List[str]:
+    """Comma-separated in CONTACT_NOTIFY_TO."""
+    raw = os.getenv("CONTACT_NOTIFY_TO", "polska2038@proton.me")
+    return [e.strip() for e in raw.split(",") if e.strip()]
 
 # Simple in-memory rate limit per IP (good enough for single-instance / public demo).
 _ip_hits: Dict[str, List[float]] = {}
@@ -54,16 +57,77 @@ def _rate_limit_or_429(ip: str) -> None:
     _ip_hits[ip] = hits
 
 
-def _smtp_send(msg: EmailMessage) -> None:
-    host = os.getenv("SMTP_HOST")
-    user = os.getenv("SMTP_USER")
-    password = os.getenv("SMTP_PASS")
+def _resend_api_key() -> Optional[str]:
+    """Resend API key from RESEND_API_KEY or SMTP_PASS when it looks like re_…"""
+    for name in ("RESEND_API_KEY", "SMTP_PASS"):
+        val = (os.getenv(name) or "").strip()
+        if val.startswith("re_"):
+            return val
+    return None
+
+
+def _smtp_credentials() -> Tuple[str, int, str, str, bool]:
+    """Return (host, port, user, password, use_tls). Auto-fills Resend SMTP when only API key is set."""
+    api_key = _resend_api_key()
+    host = (os.getenv("SMTP_HOST") or "").strip()
+    user = (os.getenv("SMTP_USER") or "").strip()
+    password = (os.getenv("SMTP_PASS") or "").strip()
     use_tls = os.getenv("SMTP_TLS", "true").lower() in ("1", "true", "yes")
     port_default = "587" if use_tls else "465"
     port = int(os.getenv("SMTP_PORT", port_default))
 
+    if api_key and not host:
+        return ("smtp.resend.com", 587, "resend", api_key, True)
+
     if not host or not user or not password:
-        raise RuntimeError("SMTP is not configured (SMTP_HOST/SMTP_USER/SMTP_PASS).")
+        raise RuntimeError(
+            "Email is not configured. Set RESEND_API_KEY (or SMTP_HOST/SMTP_USER/SMTP_PASS)."
+        )
+
+    return (host, port, user, password, use_tls)
+
+
+def _default_from() -> str:
+    custom = (os.getenv("SMTP_FROM") or "").strip()
+    if custom:
+        return _clean_header_value(custom)
+    if _resend_api_key():
+        return "Polska2038 <powiadomienia@polska2038.pl>"
+    return "Polska2038 Powiadomienia <powiadomienia@polska2038.pl>"
+
+
+def _send_via_resend_api(msg: EmailMessage, api_key: str) -> None:
+    """HTTPS delivery — preferred on Vercel serverless (no SMTP port issues)."""
+    payload: dict = {
+        "from": msg["From"],
+        "to": [a.strip() for a in msg["To"].split(",") if a.strip()],
+        "subject": msg["Subject"],
+        "text": msg.get_content(),
+    }
+    reply_to = msg.get("Reply-To")
+    if reply_to:
+        payload["reply_to"] = reply_to
+
+    req = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            if resp.status >= 300:
+                raise RuntimeError(f"Resend API HTTP {resp.status}")
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")[:300]
+        raise RuntimeError(f"Resend API HTTP {e.code}: {body}") from e
+
+
+def _smtp_send(msg: EmailMessage) -> None:
+    host, port, user, password, use_tls = _smtp_credentials()
 
     if use_tls:
         with smtplib.SMTP(host, port, timeout=20) as s:
@@ -74,6 +138,17 @@ def _smtp_send(msg: EmailMessage) -> None:
         with smtplib.SMTP_SSL(host, port, timeout=20) as s:
             s.login(user, password)
             s.send_message(msg)
+
+
+def _deliver_email(msg: EmailMessage) -> None:
+    api_key = _resend_api_key()
+    if api_key:
+        try:
+            _send_via_resend_api(msg, api_key)
+            return
+        except Exception:
+            logger.warning("Resend HTTP API failed, falling back to SMTP", exc_info=True)
+    _smtp_send(msg)
 
 
 @router.post("/contact", response_model=ContactMessageOut)
@@ -112,7 +187,7 @@ async def submit_contact(data: ContactMessageIn, request: Request, db: AsyncSess
 
     # Build email
     # From must be in a domain verified in Resend (avoid proton.me here).
-    from_addr = _clean_header_value(os.getenv("SMTP_FROM") or "Polska2038 Powiadomienia <powiadomienia@polska2038.pl>")
+    from_addr = _default_from()
     subject = _clean_header_value(f"Projekt #Polska2038 - Głos Obywatelski: {data.subject.strip()}")
 
     body = "\n".join([
@@ -134,15 +209,15 @@ async def submit_contact(data: ContactMessageIn, request: Request, db: AsyncSess
 
     msg = EmailMessage()
     msg["From"] = from_addr
-    msg["To"] = ", ".join(STAKEHOLDERS)
+    msg["To"] = ", ".join(_stakeholder_recipients())
     msg["Subject"] = subject
     msg["Reply-To"] = _clean_header_value(str(data.email))
     msg.set_content(body)
 
     try:
-        await anyio.to_thread.run_sync(_smtp_send, msg)
+        await anyio.to_thread.run_sync(_deliver_email, msg)
     except Exception as e:
-        logger.exception("SMTP send failed")
+        logger.exception("Email delivery failed")
         # Do not lose stored message; report that delivery failed.
         debug = os.getenv("SMTP_DEBUG", "").lower() in ("1", "true", "yes")
         if debug:
