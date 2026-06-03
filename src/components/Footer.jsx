@@ -1,7 +1,10 @@
 ﻿import { useLanguage } from '../context/LanguageContext';
+import { useCookieConsent } from '../context/CookieConsentContext';
+import DemoDisclaimer from './DemoDisclaimer';
 
 export default function Footer() {
   const { t, localePath } = useLanguage();
+  const { openSettings } = useCookieConsent();
 
   return (
     <footer className="bg-black border-t border-brand-border py-12">
@@ -91,11 +94,28 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="mb-6">
+          <DemoDisclaimer compact />
+        </div>
+
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-between gap-x-6 gap-y-2">
-          <div className="text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide whitespace-nowrap">
+          <div className="text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide text-center sm:text-left">
             &copy; 2025&ndash;2026 #Polska2038 v2.0. {t?.footer?.copyright}
+            <span className="block sm:inline sm:ml-2 text-gray-600">{t?.footer?.proBono ?? 'Projekt pro bono · non-profit · kod MIT na GitHub'}</span>
           </div>
-          <div className="flex items-center gap-4 text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide whitespace-nowrap">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1 text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide">
+            <a href={localePath('/polityka-prywatnosci')} className="hover:text-gray-200 transition-colors">
+              {t?.footer?.privacy ?? 'Polityka prywatności'}
+            </a>
+            <a href={localePath('/polityka-cookies')} className="hover:text-gray-200 transition-colors">
+              {t?.footer?.cookies ?? 'Cookies'}
+            </a>
+            <a href={localePath('/regulamin')} className="hover:text-gray-200 transition-colors">
+              {t?.footer?.terms ?? 'Regulamin'}
+            </a>
+            <button type="button" onClick={openSettings} className="hover:text-gray-200 transition-colors">
+              {t?.footer?.cookieSettings ?? 'Ustawienia cookies'}
+            </button>
             <a href={localePath('/kontakt')} className="hover:text-gray-200 transition-colors">{t?.footer?.contactTeam}</a>
             <a href="https://github.com/Polska-2038/projekt-polska-2038-pro" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">MIT License</a>
           </div>

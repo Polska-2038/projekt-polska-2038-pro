@@ -1,4 +1,5 @@
 ﻿import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useCountUp';
 import { Mail, Building2, Globe, CheckCircle } from 'lucide-react';
@@ -25,7 +26,7 @@ const ROLES_EN = [
 ];
 
 export default function ContactSection() {
-  const { lang } = useLanguage();
+  const { lang, localePath, t } = useLanguage();
   const ROLES = lang === 'en' ? ROLES_EN : ROLES_PL;
   const [submitted, setSubmitted] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -307,10 +308,18 @@ export default function ContactSection() {
                 >
                   {busy ? (lang === 'en' ? 'Sending…' : 'Wysyłanie…') : (lang === 'en' ? 'Send message →' : 'Wyślij Zgłoszenie →')}
                 </button>
+                <p className="text-gray-500 text-[11px] font-mono leading-relaxed">
+                  {t?.contactForm?.privacyNotice ?? (lang === 'en'
+                    ? 'By submitting the form you allow us to process your data to handle your enquiry (see Privacy Policy).'
+                    : 'Wysyłając formularz, wyrażasz zgodę na przetwarzanie podanych danych w celu obsługi zapytania (zgodnie z Polityką prywatności).')}{' '}
+                  <Link to={localePath('/polityka-prywatnosci')} className="text-brand-neon hover:underline">
+                    {lang === 'en' ? 'Privacy Policy' : 'Polityka prywatności'}
+                  </Link>
+                </p>
                 <div className="text-gray-400 text-xs font-mono leading-relaxed">
                   {lang === 'en'
-                    ? 'Note: your message will be forwarded directly to the Ministry of Sport, the FA (PZPN) and league authorities as a citizen voice on meritocracy in Polish football.'
-                    : 'Twój głos zostanie zapisany w naszym systemie i dodany do oficjalnego, merytorycznego raportu IT, który jako zorganizowane środowisko przekażemy na ręce Ministerstwa Sportu, PZPN oraz władz Ekstraklasy. Budujemy masę krytyczną opartą na danych.'}
+                    ? 'Your message may be included in the initiative’s report (pro bono civic project). This is not an official Ministry or FA administrative procedure.'
+                    : 'Twój głos zostanie zapisany w naszym systemie i może zostać uwzględniony w merytorycznym raporcie inicjatywy #Polska2038 (projekt obywatelski pro bono). Nie jest to oficjalna procedura administracyjna PZPN ani Ministerstwa Sportu.'}
                 </div>
               </form>
             )}

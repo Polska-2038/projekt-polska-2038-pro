@@ -1,5 +1,6 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
+import DemoDisclaimer from './DemoDisclaimer';
 import { ScrollProgressBar, FloatingCTA } from './UIUtils';
 
 export default function PublicLayout({ children, pageTitle, pageSubtitle }) {
@@ -7,6 +8,7 @@ export default function PublicLayout({ children, pageTitle, pageSubtitle }) {
     <div className="min-h-screen bg-brand-dark text-white font-display">
       <ScrollProgressBar />
       <Navbar />
+      <DemoDisclaimer />
       {pageTitle && (
         <div className="pt-28 pb-12 px-4 border-b border-brand-border bg-brand-dark relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />

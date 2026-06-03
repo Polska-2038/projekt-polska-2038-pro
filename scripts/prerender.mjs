@@ -24,6 +24,12 @@ const routes = [
   '/partnerzy',
   '/kontakt',
   '/o-programie',
+  '/polityka-prywatnosci',
+  '/polityka-cookies',
+  '/regulamin',
+  '/en/polityka-prywatnosci',
+  '/en/polityka-cookies',
+  '/en/regulamin',
 ];
 
 function ensureDir(p) {

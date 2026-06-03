@@ -39,11 +39,11 @@
   },
   "trust": {
     "items": [
-      "FIFA Data Standards (ready)",
-      "UEFA compatible (ready)",
-      "ISO 27001 ready",
-      "GDPR compliant",
-      "Real-time scouting"
+      "Concept: FIFA Data Standards",
+      "Concept: UEFA compatible",
+      "GDPR / privacy by design",
+      "Open source (MIT)",
+      "Demo data"
     ]
   },
   "personas": {
@@ -116,18 +116,49 @@
     "navHeading": "Navigation",
     "copyright": "All rights reserved.",
     "contactTeam": "Contact the team",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "terms": "Terms of Use",
+    "cookieSettings": "Cookie settings",
+    "proBono": "Pro bono · non-profit · MIT licensed on GitHub",
     "activeStatus": "System active — demo data",
     "builtFor": "Built with \u2665 for Polish sport"
+  },
+  "contactForm": {
+    "privacyNotice": "By submitting the form you allow us to process your data to handle your enquiry (see"
+  },
+  "demoDisclaimer": {
+    "ariaLabel": "Demonstration site notice",
+    "badge": "Pro bono · Demo",
+    "body": "This site is informational and presentational. Data, quotes and “partnerships” are conceptual scenarios — not official endorsement by the FA, Ministry or other entities.",
+    "learnMore": "Terms of Use",
+    "proBono": "Non-profit",
+    "compact": "Pro bono civic project · demo content · MIT on GitHub."
+  },
+  "mediaBuzz": {
+    "illustrativeNotice": "Note: quotes, posts and partners below are illustrative scenario materials — not official communications from the FA, Ministry, FIFA, UEFA or listed brands.",
+    "statsLine": "371K+ reactions (scenario) · 15 media (illustration) · 8 partners (planned)",
+    "postTag": "* Demo scenario",
+    "sponsorModalNote": "* Partnership scenario — not a contract or brand endorsement"
+  },
+  "cookieBanner": {
+    "title": "Cookies",
+    "description": "We use essential cookies and localStorage for the site to work. Optional analytics (Vercel) runs only with your consent. Details:",
+    "policyLink": "Cookie Policy",
+    "privacyLink": "Privacy Policy",
+    "acceptAll": "Accept all",
+    "rejectOptional": "Essential only"
   },
   "landing": {
     "heroTagline": "Citizen initiative · For the Ministry of Sport · 2026–2038",
     "socialProof": [
-      { "badge": "PZPN", "label": "pilot discussions", "color": "text-brand-neon" },
-      { "badge": "MSiT", "label": "50 Orlik pilot", "color": "text-brand-red" },
-      { "badge": "UEFA", "label": "watching the project", "color": "text-brand-gold" },
-      { "badge": "FIFA", "label": "contact established", "color": "text-brand-cyan" },
-      { "badge": "Lewandowski", "label": "project ambassador", "color": "text-brand-gold" }
+      { "badge": "PZPN", "label": "scenario talks (demo)", "color": "text-brand-neon" },
+      { "badge": "MSiT", "label": "pilot scenario (demo)", "color": "text-brand-red" },
+      { "badge": "UEFA", "label": "illustrative interest", "color": "text-brand-gold" },
+      { "badge": "FIFA", "label": "contact scenario (demo)", "color": "text-brand-cyan" },
+      { "badge": "RL", "label": "ambassador goal (demo)", "color": "text-brand-gold" }
     ],
+    "socialProofNote": "* Labels are presentational scenarios, not official status.",
     "heroDashboard": {
       "metrics": [
         { "label": "Program budget", "value": "PLN 1.08B", "sub": "per year" },
@@ -158,7 +189,7 @@
     },
     "countdown": {
       "pilotEyebrow": "Pilot start",
-      "pilotTitle": "1 January 2026 — official program kick-off",
+      "pilotTitle": "Scenario: pilot launch 2026 (concept)",
       "pilotFoot": "3 regions · 50 Orlik pitches · 500 coaches in the system",
       "finalEyebrow": "North star",
       "finalTitle": "FIFA World Cup final 2038 🏆",

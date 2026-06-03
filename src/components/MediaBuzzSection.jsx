@@ -29,13 +29,13 @@ const QUOTES = [
   { quote: "Sports talent detection is a $100B problem nobody has solved at population scale. Poland might.", source: "Bloomberg Technology", date: "Maj 2026", color: "gold", tag: "sponsors" },
 ];
 const SOCIAL_BUZZ = [
-  { handle: "@PZPN_pl", platform: "X", text: "Polska2038 to system, którego federacja potrzebowała od lat. Jesteśmy w trakcie rozmów o pilotażu w 3 województwach. #NaszaKadra #Polska2038", likes: "28K", reposts: "9K", color: "neon", tag: "pzpn", verified: true, badge: "Oficjalny profil PZPN" },
-  { handle: "@UEFA", platform: "X", text: "Distributed LiDAR + AI talent detection at national scale. Following this very closely for potential EU-wide template. #SportTech #Poland", likes: "67K", reposts: "22K", color: "gold", tag: "media", verified: true, badge: "Official UEFA" },
-  { handle: "@MSiT_GOV_PL", platform: "X", text: "Infrastruktura #Polska2038 wpisuje się w naszą strategię SportPL2030. Pilotaż uruchomiony Q4 2025, skalowanie do 500 węzłów LiDAR w Q2 2026. 🇵🇱", likes: "19K", reposts: "6K", color: "red", tag: "ministry", verified: true, badge: "Ministerstwo Sportu i Turystyki" },
-  { handle: "@FIFAcom", platform: "X", text: "#Polska2038 represents a paradigm shift in talent identification at national scale. AI-driven biomechanical assessment — the future of football development. Following closely.", likes: "89K", reposts: "31K", color: "cyan", tag: "pzpn", verified: true, badge: "Official FIFA" },
-  { handle: "@RL_Foundation", platform: "X", text: "Jako zawodnik wiem, jak trudno jest zaistnieć bez systemu. #Polska2038 da szansę tysiącom dzieci, które nie mają dostępu do skautingu. Wspieramy tę inicjatywę. ⭐🇵🇱", likes: "—", reposts: "—", color: "gold", tag: "media", verified: false, badge: "RL Foundation — cel partnerstwa ambasadorskiego" },
-  { handle: "@Nike_Football", platform: "X", text: "We are watching #Polska2038 with serious interest. A system that finds untapped talent at national scale aligns with our philosophy. 👟", likes: "54K", reposts: "14K", color: "neon", tag: "sponsors", verified: true, badge: "Nike Football Official" },
-  { handle: "@Adidas_Football", platform: "X", text: "LiDAR + AI + 10,000 pitches. If this scales, we want to be part of it. The future of talent development is data-first. ⚽", likes: "41K", reposts: "11K", color: "cyan", tag: "sponsors", verified: true, badge: "Adidas Football" },
+  { handle: "@PZPN_pl", platform: "X", text: "Polska2038 to system, którego federacja potrzebowała od lat. Jesteśmy w trakcie rozmów o pilotażu w 3 województwach. #NaszaKadra #Polska2038", likes: "28K", reposts: "9K", color: "neon", tag: "pzpn", verified: false, badge: "Scenariusz · nieoficjalny komunikat PZPN" },
+  { handle: "@UEFA", platform: "X", text: "Distributed LiDAR + AI talent detection at national scale. Following this very closely for potential EU-wide template. #SportTech #Poland", likes: "67K", reposts: "22K", color: "gold", tag: "media", verified: false, badge: "Scenariusz · nie UEFA" },
+  { handle: "@MSiT_GOV_PL", platform: "X", text: "Infrastruktura #Polska2038 wpisuje się w naszą strategię SportPL2030. Pilotaż uruchomiony Q4 2025, skalowanie do 500 węzłów LiDAR w Q2 2026. 🇵🇱", likes: "19K", reposts: "6K", color: "red", tag: "ministry", verified: false, badge: "Scenariusz · nie MSiT" },
+  { handle: "@FIFAcom", platform: "X", text: "#Polska2038 represents a paradigm shift in talent identification at national scale. AI-driven biomechanical assessment — the future of football development. Following closely.", likes: "89K", reposts: "31K", color: "cyan", tag: "pzpn", verified: false, badge: "Scenariusz · nie FIFA" },
+  { handle: "@RL_Foundation", platform: "X", text: "Jako zawodnik wiem, jak trudno jest zaistnieć bez systemu. #Polska2038 da szansę tysiącom dzieci, które nie mają dostępu do skautingu. Wspieramy tę inicjatywę. ⭐🇵🇱", likes: "—", reposts: "—", color: "gold", tag: "media", verified: false, badge: "Scenariusz · cel partnerstwa" },
+  { handle: "@Nike_Football", platform: "X", text: "We are watching #Polska2038 with serious interest. A system that finds untapped talent at national scale aligns with our philosophy. 👟", likes: "54K", reposts: "14K", color: "neon", tag: "sponsors", verified: false, badge: "Scenariusz · nie Nike" },
+  { handle: "@Adidas_Football", platform: "X", text: "LiDAR + AI + 10,000 pitches. If this scales, we want to be part of it. The future of talent development is data-first. ⚽", likes: "41K", reposts: "11K", color: "cyan", tag: "sponsors", verified: false, badge: "Scenariusz · nie Adidas" },
 ];
 const SPONSORS = [
   { id: "s1", name: "Adidas", emoji: "👟", category: "Sportowy", info: "Partner sprzętowy i co-branding akcji skautingowych.", color: "neon" },
@@ -55,7 +55,8 @@ const FILTERS = [
   { key: "media", label: "📰 Media" },
 ];
 export default function MediaBuzzSection() {
-  const { localePath } = useLanguage();
+  const { localePath, t } = useLanguage();
+  const buzz = t?.mediaBuzz;
   const [ref, inView] = useInView(0.08);
   const [filter, setFilter] = useState("all");
   const [expandedQuote, setExpandedQuote] = useState(null);
@@ -100,10 +101,15 @@ export default function MediaBuzzSection() {
             <span className="text-brand-cyan" style={{ textShadow: "0 0 20px rgba(0,229,255,0.4)" }}>#Polska2038</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">Od Warszawy do Doliny Krzemowej — system, który zmienia zasady wykrywania talentów.</p>
+          <p className="mt-4 max-w-2xl mx-auto text-amber-200/80 text-xs font-mono leading-relaxed border border-amber-500/20 bg-amber-950/20 px-4 py-2">
+            {buzz?.illustrativeNotice ?? 'Uwaga: cytaty, posty i partnerzy poniżej to materiały ilustracyjne scenariusza prezentacyjnego — nie są oficjalnymi komunikatami PZPN, MSiT, FIFA, UEFA ani wymienionych marek.'}
+          </p>
           <div className="mt-6 inline-flex items-center gap-3 px-5 py-2 border border-brand-cyan/30 bg-brand-cyan/5">
             <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
             <span className="font-mono text-brand-cyan text-sm">
-              <span className="font-bold">371K+</span> reakcji · <span className="font-bold">15</span> mediów globalnych · <span className="font-bold">8</span> partnerów strategicznych
+              {buzz?.statsLine ?? (
+                <><span className="font-bold">371K+</span> reakcji (scenariusz) · <span className="font-bold">15</span> mediów (ilustracja) · <span className="font-bold">8</span> partnerów (plan)</>
+              )}
             </span>
           </div>
         </motion.div>
@@ -177,7 +183,7 @@ export default function MediaBuzzSection() {
                       <span className="flex items-center gap-1"><TrendingUp size={10} />{post.likes}</span>
                       <span>🔁 {post.reposts}</span>
                     </div>
-                    <div className="text-gray-700 text-[9px] font-mono">* Treść poglądowa</div>
+                    <div className="text-amber-600/80 text-[9px] font-mono">{buzz?.postTag ?? '* Scenariusz demo'}</div>
                   </div>
                 </motion.div>
               ))}
@@ -258,7 +264,9 @@ export default function MediaBuzzSection() {
                   <li>• Uczestnictwo w Gali Talentów 2027</li>
                 </ul>
               </div>
-              <p className="text-center text-gray-700 text-[9px] font-mono mt-2">* Dane poglądowe</p>
+              <p className="text-center text-amber-600/70 text-[9px] font-mono mt-2">
+                {buzz?.sponsorModalNote ?? '* Scenariusz partnerstwa — nie umowa ani poparcie marki'}
+              </p>
             </motion.div>
           </motion.div>
         )}

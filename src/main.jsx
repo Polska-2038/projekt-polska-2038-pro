@@ -1,9 +1,11 @@
 import { Component } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import { Analytics } from '@vercel/analytics/react'
 import './index.css'
 import App from './App.jsx'
+import { CookieConsentProvider } from './context/CookieConsentContext.jsx'
+import AnalyticsGate from './components/AnalyticsGate.jsx'
+import CookieBanner from './components/CookieBanner.jsx'
 
 class ErrorBoundary extends Component {
   constructor(props) { super(props); this.state = { error: null }; }
@@ -28,8 +30,11 @@ class ErrorBoundary extends Component {
 createRoot(document.getElementById('root')).render(
   <ErrorBoundary>
     <BrowserRouter>
-      <App />
-      <Analytics />
+      <CookieConsentProvider>
+        <App />
+        <CookieBanner />
+        <AnalyticsGate />
+      </CookieConsentProvider>
     </BrowserRouter>
   </ErrorBoundary>,
 )

@@ -20,6 +20,7 @@ import AboutPage          from './pages/AboutPage';
 import MaterialDetailPage from './pages/MaterialDetailPage';
 import LoginPage          from './pages/LoginPage';
 import NotFoundPage       from './pages/NotFoundPage';
+import LegalPage          from './pages/LegalPage';
 
 // Protected pages
 import ScoutPanel from './pages/ScoutPanel';
@@ -80,6 +81,12 @@ export default function App() {
           <Route path="/en/reforma/materialy/:slug" element={<MaterialDetailPage />} />
           <Route path="/login"          element={<LoginPage />} />
           <Route path="/en/login"       element={<LoginPage />} />
+          <Route path="/polityka-prywatnosci"     element={<LegalPage docKey="privacy" />} />
+          <Route path="/polityka-cookies"        element={<LegalPage docKey="cookies" />} />
+          <Route path="/regulamin"               element={<LegalPage docKey="terms" />} />
+          <Route path="/en/polityka-prywatnosci" element={<LegalPage docKey="privacy" />} />
+          <Route path="/en/polityka-cookies"    element={<LegalPage docKey="cookies" />} />
+          <Route path="/en/regulamin"           element={<LegalPage docKey="terms" />} />
 
           {/* ── Protected — scouts ───────────────────── */}
           <Route path="/panel" element={<PrivateRoute><ScoutPanel /></PrivateRoute>} />

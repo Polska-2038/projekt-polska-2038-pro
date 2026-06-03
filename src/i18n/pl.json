@@ -39,11 +39,11 @@
   },
   "trust": {
     "items": [
-      "FIFA Data Standards (ready)",
-      "UEFA compatible (ready)",
-      "ISO 27001 ready",
-      "GDPR compliant",
-      "Real-time scouting"
+      "Koncepcja: FIFA Data Standards",
+      "Koncepcja: UEFA compatible",
+      "RODO / privacy by design",
+      "Open source (MIT)",
+      "Dane demonstracyjne"
     ]
   },
   "personas": {
@@ -116,18 +116,49 @@
     "navHeading": "Nawigacja",
     "copyright": "Wszelkie prawa zastrzeżone.",
     "contactTeam": "Kontakt z zespołem",
+    "privacy": "Polityka prywatności",
+    "cookies": "Polityka cookies",
+    "terms": "Regulamin",
+    "cookieSettings": "Ustawienia cookies",
+    "proBono": "Projekt pro bono · non-profit · kod MIT na GitHub",
     "activeStatus": "System aktywny — dane demo",
     "builtFor": "Zbudowany z \u2665 dla polskiego sportu"
+  },
+  "contactForm": {
+    "privacyNotice": "Wysyłając formularz, wyrażasz zgodę na przetwarzanie podanych danych w celu obsługi zapytania (zgodnie z"
+  },
+  "demoDisclaimer": {
+    "ariaLabel": "Informacja o charakterze demonstracyjnym serwisu",
+    "badge": "Pro bono · Demo",
+    "body": "Strona ma charakter informacyjny i prezentacyjny. Dane, cytaty i „partnerstwa” są scenariuszem koncepcyjnym — nie oznaczają oficjalnego poparcia PZPN, MSiT ani innych podmiotów.",
+    "learnMore": "Regulamin",
+    "proBono": "Non-profit",
+    "compact": "Projekt obywatelski pro bono · treści demo · MIT na GitHub."
+  },
+  "mediaBuzz": {
+    "illustrativeNotice": "Uwaga: cytaty, posty i partnerzy poniżej to materiały ilustracyjne scenariusza — nie są oficjalnymi komunikatami PZPN, MSiT, FIFA, UEFA ani wymienionych marek.",
+    "statsLine": "371K+ reakcji (scenariusz) · 15 mediów (ilustracja) · 8 partnerów (plan)",
+    "postTag": "* Scenariusz demo",
+    "sponsorModalNote": "* Scenariusz partnerstwa — nie umowa ani poparcie marki"
+  },
+  "cookieBanner": {
+    "title": "Pliki cookies",
+    "description": "Używamy niezbędnych plików cookies i localStorage do działania strony. Opcjonalna analityka (Vercel) włącza się tylko za Twoją zgodą. Szczegóły:",
+    "policyLink": "Polityka cookies",
+    "privacyLink": "Polityka prywatności",
+    "acceptAll": "Akceptuję wszystkie",
+    "rejectOptional": "Tylko niezbędne"
   },
   "landing": {
     "heroTagline": "Projekt Obywatelski · Dla Ministerstwa Sportu · 2026–2038",
     "socialProof": [
-      { "badge": "PZPN", "label": "rozmowy o pilotażu", "color": "text-brand-neon" },
-      { "badge": "MSiT", "label": "pilotaż 50 Orlików", "color": "text-brand-red" },
-      { "badge": "UEFA", "label": "obserwuje projekt", "color": "text-brand-gold" },
-      { "badge": "FIFA", "label": "kontakt nawiązany", "color": "text-brand-cyan" },
-      { "badge": "Lewandowski", "label": "ambasador projektu", "color": "text-brand-gold" }
+      { "badge": "PZPN", "label": "scenariusz rozmów (demo)", "color": "text-brand-neon" },
+      { "badge": "MSiT", "label": "scenariusz pilotażu (demo)", "color": "text-brand-red" },
+      { "badge": "UEFA", "label": "ilustracja zainteresowania", "color": "text-brand-gold" },
+      { "badge": "FIFA", "label": "scenariusz kontaktu (demo)", "color": "text-brand-cyan" },
+      { "badge": "RL", "label": "cel ambasadorstwa (demo)", "color": "text-brand-gold" }
     ],
+    "socialProofNote": "* Oznaczenia mają charakter scenariusza prezentacyjnego, nie oficjalnego statusu.",
     "heroDashboard": {
       "metrics": [
         { "label": "Budżet programu", "value": "1,08 mld zł", "sub": "rocznie" },
@@ -158,7 +189,7 @@
     },
     "countdown": {
       "pilotEyebrow": "Start pilotażu",
-      "pilotTitle": "1 stycznia 2026 — Oficjalny start programu",
+      "pilotTitle": "Scenariusz: start pilotażu 2026 (koncepcja)",
       "pilotFoot": "3 województwa · 50 boisk Orlik · 500 trenerów",
       "finalEyebrow": "Cel finalny",
       "finalTitle": "Finał Mistrzostw Świata 2038 🏆",

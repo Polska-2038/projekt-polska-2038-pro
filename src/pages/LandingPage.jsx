@@ -311,12 +311,19 @@ export default function LandingPage() {
                 {/* Social proof */}
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.65 }}
                   className="flex flex-wrap gap-2">
-                  {socialProof.map((p) => (
-                    <div key={p.badge} className="flex items-center gap-1.5 px-3 py-1.5 border border-brand-border/50 bg-brand-card/30 backdrop-blur-sm">
-                      <span className={`font-mono font-bold text-xs ${p.color}`}>{p.badge}</span>
-                      <span className="text-gray-600 font-mono text-[10px]">— {p.label}</span>
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex flex-wrap gap-2">
+                      {socialProof.map((p) => (
+                        <div key={p.badge} className="flex items-center gap-1.5 px-3 py-1.5 border border-brand-border/50 bg-brand-card/30 backdrop-blur-sm">
+                          <span className={`font-mono font-bold text-xs ${p.color}`}>{p.badge}</span>
+                          <span className="text-gray-600 font-mono text-[10px]">— {p.label}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                    {t?.landing?.socialProofNote ? (
+                      <p className="text-gray-600 font-mono text-[10px]">{t.landing.socialProofNote}</p>
+                    ) : null}
+                  </div>
                 </motion.div>
               </div>
 

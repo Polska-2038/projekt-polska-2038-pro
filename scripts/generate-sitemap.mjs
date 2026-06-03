@@ -27,6 +27,12 @@ const routes = [
   '/partnerzy',
   '/kontakt',
   '/o-programie',
+  '/polityka-prywatnosci',
+  '/polityka-cookies',
+  '/regulamin',
+  '/en/polityka-prywatnosci',
+  '/en/polityka-cookies',
+  '/en/regulamin',
 ];
 
 const lastmod = new Date().toISOString().slice(0, 10);
