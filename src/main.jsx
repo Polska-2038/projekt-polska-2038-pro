@@ -4,8 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { CookieConsentProvider } from './context/CookieConsentContext.jsx'
-import AnalyticsGate from './components/AnalyticsGate.jsx'
-import CookieBanner from './components/CookieBanner.jsx'
 
 class ErrorBoundary extends Component {
   constructor(props) { super(props); this.state = { error: null }; }
@@ -32,8 +30,6 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <CookieConsentProvider>
         <App />
-        <CookieBanner />
-        <AnalyticsGate />
       </CookieConsentProvider>
     </BrowserRouter>
   </ErrorBoundary>,

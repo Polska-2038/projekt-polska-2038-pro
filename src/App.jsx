@@ -21,6 +21,8 @@ import MaterialDetailPage from './pages/MaterialDetailPage';
 import LoginPage          from './pages/LoginPage';
 import NotFoundPage       from './pages/NotFoundPage';
 import LegalPage          from './pages/LegalPage';
+import CookieBanner from './components/CookieBanner';
+import AnalyticsGate from './components/AnalyticsGate';
 
 // Protected pages
 import ScoutPanel from './pages/ScoutPanel';
@@ -94,6 +96,8 @@ export default function App() {
           {/* ── 404 ──────────────────────────────────── */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <CookieBanner />
+        <AnalyticsGate />
       </AuthProvider>
     </LanguageProvider>
   );
