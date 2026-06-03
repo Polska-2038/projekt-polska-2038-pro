@@ -96,9 +96,9 @@ export default function App() {
           {/* ── 404 ──────────────────────────────────── */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <CookieBanner />
-        <AnalyticsGate />
       </AuthProvider>
+      <CookieBanner />
+      <AnalyticsGate />
     </LanguageProvider>
   );
 }

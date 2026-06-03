@@ -35,7 +35,8 @@ function writeStored(analytics) {
 
 export function CookieConsentProvider({ children }) {
   const [ready, setReady] = useState(false);
-  const [showBanner, setShowBanner] = useState(false);
+  /** Domyślnie true — baner widoczny do odczytu localStorage (unika „braku” banera przy hydracji). */
+  const [showBanner, setShowBanner] = useState(true);
   const [analytics, setAnalytics] = useState(false);
 
   useEffect(() => {
@@ -43,8 +44,6 @@ export function CookieConsentProvider({ children }) {
     if (stored) {
       setAnalytics(stored.analytics);
       setShowBanner(false);
-    } else {
-      setShowBanner(true);
     }
     setReady(true);
   }, []);

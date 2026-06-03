@@ -109,7 +109,11 @@ export default function Footer() {
             <a href={localePath('/regulamin')} className="hover:text-gray-200 transition-colors">
               {t?.footer?.terms ?? 'Regulamin'}
             </a>
-            <button type="button" onClick={openSettings} className="hover:text-gray-200 transition-colors">
+            <button
+              type="button"
+              onClick={openSettings}
+              className="hover:text-brand-neon transition-colors underline decoration-brand-neon/30 underline-offset-2"
+            >
               {t?.footer?.cookieSettings ?? 'Ustawienia cookies'}
             </button>
             <a href={localePath('/kontakt')} className="hover:text-gray-200 transition-colors">{t?.footer?.contactTeam}</a>
