@@ -32,8 +32,10 @@ Techniczne podstawy są w repozytorium (meta per strona, sitemap, JSON-LD, hrefl
    - Vercel → Project → Settings → Environment Variables:
      - `VITE_GOOGLE_SITE_VERIFICATION` = `twój_token`
    - Redeploy produkcji.
-4. **Sitemaps** → dodaj: `https://polska2038.pl/sitemap.xml`
-5. **Sprawdź indeksowanie** → wklej kilka URL (/, /technologia, /reforma/dokumenty) → „Poproś o zindeksowanie”.
+4. **Mapy witryn** → usuń stary wpis z błędem → dodaj **tylko**: `https://polska2038.pl/sitemap.xml`  
+   (nie `/` ani `/sitemap` — Google wtedy widzi HTML i „0 stron”).
+5. W przeglądarce sprawdź sitemap: pierwsza linia musi być `<?xml`, nie `<!doctype html>`.
+6. **Sprawdź indeksowanie** → wklej kilka URL (/, /technologia, /reforma/dokumenty) → „Poproś o zindeksowanie”.
 
 ## 2. Bing Webmaster Tools (opcjonalnie)
 
