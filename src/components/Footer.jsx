@@ -94,10 +94,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mb-6">
-          <DemoDisclaimer compact />
-        </div>
-
         <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-between gap-x-6 gap-y-2">
           <div className="text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide text-center sm:text-left">
             &copy; 2025&ndash;2026 #Polska2038 v2.0. {t?.footer?.copyright}
@@ -135,6 +131,10 @@ export default function Footer() {
           <div className="text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide whitespace-nowrap">
             {t?.footer?.builtFor}
           </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-amber-500/15">
+          <DemoDisclaimer />
         </div>
       </div>
     </footer>

@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export default function Navbar({ embedded = false }) {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen]         = useState(false);
   const [activeLanding, setActiveLanding] = useState('system');
@@ -72,14 +72,14 @@ export default function Navbar({ embedded = false }) {
     }
   };
 
-  const header = (
-    <>
+  return (
+    <div className="fixed top-0 left-0 right-0 z-50">
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         className={`transition-all duration-300 ${
-          embedded || scrolled || open
+          scrolled || open
             ? 'bg-brand-dark/98 backdrop-blur-md border-b border-brand-border'
             : 'bg-transparent'
         }`}
@@ -243,9 +243,6 @@ export default function Navbar({ embedded = false }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
-
-  if (embedded) return header;
-  return <div className="fixed top-0 left-0 right-0 z-50">{header}</div>;
 }
