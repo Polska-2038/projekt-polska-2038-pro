@@ -6,3 +6,9 @@ dist/
 .DS_Store
 .vercel
 .env*.local
+
+# Python / local DB (demo — nie commituj danych)
+__pycache__/
+*.py[cod]
+backend/polska2038.db
+*.db

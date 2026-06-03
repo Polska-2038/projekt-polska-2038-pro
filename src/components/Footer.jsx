@@ -60,7 +60,7 @@ export default function Footer() {
                 'Framer Motion',
                 'FastAPI',
                 'SQLAlchemy',
-                'PostgreSQL + PostGIS',
+                'SQLite / Postgres',
               ].map((t) => (
                 <span key={t} className="px-2 py-1 border border-brand-border text-gray-500 text-xs font-mono rounded">
                   {t}
@@ -117,7 +117,16 @@ export default function Footer() {
               {t?.footer?.cookieSettings ?? 'Ustawienia cookies'}
             </button>
             <a href={localePath('/kontakt')} className="hover:text-gray-200 transition-colors">{t?.footer?.contactTeam}</a>
-            <a href="https://github.com/Polska-2038/projekt-polska-2038-pro" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">MIT License</a>
+            <a
+              href="https://github.com/Polska-2038/projekt-polska-2038-pro/blob/main/INSPIRATION.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-200 transition-colors"
+            >
+              {t?.footer?.inspiration ?? 'Wdrożenie (INSPIRATION)'}
+            </a>
+            <a href="https://github.com/Polska-2038/projekt-polska-2038-pro/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">MIT</a>
+            <a href="https://github.com/Polska-2038/projekt-polska-2038-pro/blob/main/LICENSE-MATERIALS.md" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200 transition-colors">CC BY</a>
           </div>
           <div className="flex items-center gap-2 text-gray-500 text-[11px] sm:text-xs font-mono tracking-wide whitespace-nowrap">
             <span className="w-1.5 h-1.5 bg-brand-neon rounded-full animate-pulse" />

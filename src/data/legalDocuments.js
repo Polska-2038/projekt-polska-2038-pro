@@ -128,10 +128,11 @@ export const LEGAL_DOCS = {
           ],
         },
         {
-          h: '1a. Open source (MIT)',
+          h: '1a. Open source i licencje treści',
           p: [
-            'Kod źródłowy części projektu jest udostępniany na licencji MIT w repozytorium GitHub (Polska-2038/projekt-polska-2038-pro). Możesz kopiować, modyfikować i wykorzystywać kod zgodnie z warunkami licencji, pod warunkiem zachowania informacji o prawach autorskich.',
-            'Materiały graficzne, teksty koncepcyjne i znaki mogą podlegać odrębnym ograniczeniom — sprawdź README repozytorium.',
+            'Kod źródłowy jest udostępniany na licencji MIT w repozytorium GitHub (Polska-2038/projekt-polska-2038-pro). Możesz kopiować, modyfikować i wykorzystywać kod zgodnie z MIT, pod warunkiem zachowania informacji o prawach autorskich.',
+            'Teksty koncepcyjne programu (m.in. materiały reformy) w repozytorium są na licencji Creative Commons Attribution 4.0 (CC BY 4.0) — plik LICENSE-MATERIALS.md. Przy adaptacji podaj autorstwo #Polska2038 i nie sugeruj oficjalnego poparcia federacji bez umowy.',
+            'Przewodnik wdrożenia dla gmin, klubów i developerów: INSPIRATION.md i CONTRIBUTING.md w repozytorium.',
           ],
         },
         {
@@ -150,8 +151,8 @@ export const LEGAL_DOCS = {
         {
           h: '4. Własność intelektualna',
           p: [
-            'Materiały Serwisu (teksty, layout, grafika, kod) są chronione prawem autorskim. Kod źródłowy części projektu udostępniany jest na licencji MIT — szczegóły w repozytorium GitHub.',
-            'Znak #Polska2038 używany jest w kontekście prezentacji programu.',
+            'Materiały Serwisu (teksty, layout, grafika) są chronione prawem autorskim. Kod źródłowy: MIT (LICENSE). Treści koncepcyjne w repozytorium: CC BY 4.0 (LICENSE-MATERIALS.md).',
+            'Znak #Polska2038 używany jest w kontekście prezentacji programu. Logo podmiotów trzecich na stronie demo nie oznacza licencji do ich użycia w Twoim wdrożeniu.',
           ],
         },
         {
@@ -299,9 +300,11 @@ export const LEGAL_DOCS = {
           ],
         },
         {
-          h: '1a. Open source (MIT)',
+          h: '1a. Open source and content licenses',
           p: [
-            'Source code is published under the MIT License on GitHub (Polska-2038/projekt-polska-2038-pro). You may use and modify the code under that license.',
+            'Source code is published under the MIT License on GitHub (Polska-2038/projekt-polska-2038-pro).',
+            'Conceptual program texts in the repository are under CC BY 4.0 — see LICENSE-MATERIALS.md. Attribute #Polska2038 when adapting; do not imply official federation endorsement without a written agreement.',
+            'Implementation guide: INSPIRATION.md and CONTRIBUTING.md in the repository.',
           ],
         },
         {
@@ -319,7 +322,8 @@ export const LEGAL_DOCS = {
         {
           h: '4. Intellectual property',
           p: [
-            'Site materials are protected by copyright. Source code is MIT-licensed on GitHub where indicated.',
+            'Site materials are protected by copyright. Source code: MIT (LICENSE). Repository conceptual texts: CC BY 4.0 (LICENSE-MATERIALS.md).',
+            '#Polska2038 is used to present the program. Third-party logos on the demo site do not grant you a license to use them in your deployment.',
           ],
         },
         {

@@ -111,8 +111,8 @@
     }
   },
   "footer": {
-    "tagline": "Narodowy System Operacyjny Polskiego Sportu.",
-    "tagline2": "LiDAR + AI + PostGIS. Żaden talent nie umknie.",
+    "tagline": "Koncepcja Narodowego Systemu Operacyjnego Sportu.",
+    "tagline2": "Pro bono · demo · fork i wdrożenie — INSPIRATION.md na GitHub.",
     "navHeading": "Nawigacja",
     "copyright": "Wszelkie prawa zastrzeżone.",
     "contactTeam": "Kontakt z zespołem",
@@ -120,7 +120,8 @@
     "cookies": "Polityka cookies",
     "terms": "Regulamin",
     "cookieSettings": "Ustawienia cookies",
-    "proBono": "Projekt pro bono · non-profit · kod MIT na GitHub",
+    "proBono": "Projekt pro bono · kod MIT · treści CC BY 4.0",
+    "inspiration": "Wdrożenie (INSPIRATION)",
     "activeStatus": "System aktywny — dane demo",
     "builtFor": "Zbudowany z \u2665 dla polskiego sportu"
   },

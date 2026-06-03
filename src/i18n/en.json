@@ -111,8 +111,8 @@
     }
   },
   "footer": {
-    "tagline": "National Operating System for Polish sport.",
-    "tagline2": "LiDAR + AI + PostGIS. No talent slips through.",
+    "tagline": "Concept: National Operating System for Polish sport.",
+    "tagline2": "Pro bono · demo · fork & deploy — INSPIRATION.md on GitHub.",
     "navHeading": "Navigation",
     "copyright": "All rights reserved.",
     "contactTeam": "Contact the team",
@@ -120,7 +120,8 @@
     "cookies": "Cookie Policy",
     "terms": "Terms of Use",
     "cookieSettings": "Cookie settings",
-    "proBono": "Pro bono · non-profit · MIT licensed on GitHub",
+    "proBono": "Pro bono · MIT code · CC BY 4.0 materials",
+    "inspiration": "Deploy guide (INSPIRATION)",
     "activeStatus": "System active — demo data",
     "builtFor": "Built with \u2665 for Polish sport"
   },

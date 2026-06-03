@@ -1,207 +1,129 @@
-﻿# 🇵🇱 #Polska2038 — National Sports OS v2.0
+﻿# 🇵🇱 #Polska2038 — koncepcja Narodowego Systemu Operacyjnego Sportu
 
-> **"W 2038 Polska wygra Mistrzostwa Świata. Nie przez szczęście — przez system."**
+> **„W 2038 Polska może wygrać Mistrzostwa Świata — nie przez szczęście, lecz przez system.”**
 
-[![Build Status](https://img.shields.io/badge/build-passing-00FF88?style=flat-square&logo=vite)](https://github.com/projek-polska-2038/polska-2038-pro)
-[![License: MIT](https://img.shields.io/badge/License-MIT-00E5FF?style=flat-square)](LICENSE)
-[![Tech Stack](https://img.shields.io/badge/stack-React%20%7C%20FastAPI%20%7C%20PostGIS%20%7C%20LiDAR-DC143C?style=flat-square)](docs/ARCHITECTURE.md)
-[![GDPR Compliant](https://img.shields.io/badge/GDPR-Art.25%20Compliant-FFD700?style=flat-square)](docs/PRIVACY.md)
-[![Demo Live](https://img.shields.io/badge/demo-live-00FF88?style=flat-square)](https://www.polska2038.pl)
+[![License: MIT](https://img.shields.io/badge/code-MIT-00E5FF?style=flat-square)](LICENSE)
+[![Materials: CC BY 4.0](https://img.shields.io/badge/materials-CC%20BY%204.0-FFD700?style=flat-square)](LICENSE-MATERIALS.md)
+[![Demo Live](https://img.shields.io/badge/demo-polska2038.pl-00FF88?style=flat-square)](https://polska2038.pl)
 
----
-
-## 🎯 Czym jest #Polska2038?
-
-**#Polska2038** to Narodowy System Operacyjny Polskiego Sportu — rozproszona infrastruktura LiDAR + AI + PostGIS, która po raz pierwszy w historii umożliwia systematyczne wykrywanie talentów sportowych w skali całego kraju.
-
-**Problem:** Polska traci rocznie setki talentów, bo skauting działa tylko w dużych miastach. Dziecko z Orlika w Pcimiu nie ma szans dotrzeć do skauta z Akademii.
-
-**Rozwiązanie:** Sieć czujników LiDAR na masztach 10 000 Orlików + własny model AI oceniający 5M zawodników w czasie rzeczywistym = **żaden talent nie umknie systemowi.**
+**Inicjatywa obywatelska pro bono** — strona prezentacyjna + **open source (MIT)** do forkowania i pilotaży lokalnych.  
+Pełny opis dla wdrażających: **[INSPIRATION.md](INSPIRATION.md)** · Zastrzeżenia: **[DISCLAIMER.md](DISCLAIMER.md)** · Współpraca: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ---
 
-## 🚀 Kluczowe dane
+## Czym jest ten projekt?
 
-| Wskaźnik | Wartość |
-|---|---|
-| 🏟️ Objęte lokalizacje | **10 000 Orlików** |
-| 👥 Monitorowanych zawodników | **5 000 000** |
-| 🤖 Dokładność AI (EnsembleScorer) | **94.3%** |
-| ⚡ Latencja end-to-end | **<50ms** |
-| 💰 Wycena systemu | **1,1 MLD PLN** |
-| 📈 ROI (horyzont 8 lat) | **370%** |
-| 🎯 Cel | **Polska na MŚ 2038** |
+**#Polska2038** to **wizja** systematycznego wykrywania talentów sportowych w skali kraju (dane, mapy, AI — z poszanowaniem prywatności) oraz **działający prototyp**:
+
+- strona programu (PL/EN), reforma, dokumenty koncepcyjne, kalkulator ROI (demo),
+- panel skauta i mapa województw z **danymi demonstracyjnymi**,
+- API FastAPI (kontakt, auth demo, talenty, województwa),
+- deploy na [polska2038.pl](https://polska2038.pl).
+
+**Czego tu nie ma:** sieci LiDAR na 10 000 Orlików, produkcyjnego modelu AI, integracji PZPN/FIFA. To opisane w [INSPIRATION.md](INSPIRATION.md) jako ścieżka wdrożenia.
+
+Treści o partnerach, mediach i talentach na stronie mają charakter **scenariuszowy / ilustracyjny** — nie są oficjalnymi komunikatami federacji ani ministerstw. Szczegóły: [regulamin](https://polska2038.pl/regulamin).
 
 ---
 
-## 🔧 Stack Technologiczny — Unikalne w Skali Świata
+## Trzy filary (do realizacji w terenie)
 
-### Warstwa 0 — Edge LiDAR Mesh
-```
-Technologia:  Time-of-Flight LiDAR 360° + iPhone Pro ToF API
-Pokrycie:     10 000 węzłów · 5G NR / Wi-Fi 6E · MQTT v5
-Latencja:     <12ms edge · <50ms cloud pipeline
-Prywatność:   Zero nagrania wideo — tylko chmury punktów 3D
-```
+| Filar | Skrót |
+|-------|--------|
+| **Polska 2038** | TalentRadar — każdy zawodnik ma szansę być zauważony |
+| **Bezpieczny stadion** | Odpowiedzialny kibic i organizacja |
+| **Ocena trenerów** | Audyt zewnętrzny (np. AWF) |
 
-### Warstwa 1 — BiomechAI Engine v3 (Patent Pending)
-```
-Model:        EnsembleScorer — XGBoost + LSTM + GNN hybrid
-Dokładność:   94.3% (walidacja cross-fold, n=50 000)
-Wejście:      47 punktów szkieletowych · 120fps · 3D keypoints
-Wyjście:      AI Score 0–100 · 12 subekspozycji · ranking percentyl
-```
+---
 
-### Warstwa 2 — TalentRadar PostGIS
-```
-Backend:      PostgreSQL 16 + PostGIS 3.4 + pg_vector
-Zapytania:    Nearest-talent w promieniu X km · <5ms
-API:          GeoJSON REST + GraphQL spatial subscriptions
-```
+## Stack (stan repozytorium)
 
-### Warstwa 3 — RODO Zero-Video Architecture
-```
-Dane:         Wyłącznie chmury punktów 3D — zero pikseli
-Anonimizacja: k-anonymity k≥5 · differential privacy ε=0.1
-Certyfikaty:  ISO 27001 + UODO + GDPR Art.25
-```
+| Warstwa | Technologia |
+|---------|-------------|
+| Frontend | React 18, Vite, Tailwind, Framer Motion, i18n |
+| Backend | FastAPI, SQLAlchemy, SQLite (dev) / Postgres (prod) |
+| Deploy | Vercel (frontend + serverless API) |
+| E-mail | Resend lub SMTP (`backend/routers/contact.py`) |
+| Mapa | GeoJSON województw — [polska-geojson](https://github.com/ppatrzyk/polska-geojson) (MIT) |
 
-### Warstwa 4 — Federated Learning Pipeline
-```
-Protokół:     FedAvg + SecAgg · model uczy się na krawędzi sieci
-Framework:    Flower (flwr) + ONNX Runtime Edge
-Prywatność:   Dane nie opuszczają urządzenia
-```
+**Docelowa architektura programu** (LiDAR, PostGIS, federated learning, zero-video) — opis koncepcyjny w UI i materiałach; implementacja pozostaje zadaniem wdrożenia.
 
-### Warstwa 5 — Digital Twin Athlete
+---
+
+## Struktura repozytorium
+
 ```
-Model:        Rekonstrukcja szkieletu 3D · 120fps
-Prognozy:     Trajektoria kariery · ryzyko kontuzji · potencjał
-Benchmark:    vs. 500 zawodników kadry w tym samym wieku
+projekt-polska-2038-pro/
+├── src/                 # React — strona, panel demo, legal, cookies
+├── backend/             # FastAPI, modele, seed demo
+├── api/                 # Vercel entrypoint
+├── public/geo/          # Województwa GeoJSON + licencja
+├── scripts/             # Prerender, sitemap, OG
+├── docs/                # Indeks dokumentacji
+├── INSPIRATION.md       # Jak wcielić wizję w życie
+├── CONTRIBUTING.md      # Fork i PR
+├── DISCLAIMER.md        # Zastrzeżenia prawne
+├── LICENSE              # MIT (kod)
+└── LICENSE-MATERIALS.md # CC BY 4.0 (treści koncepcyjne)
 ```
 
 ---
 
-## 📁 Struktura Repozytorium
-
-```
-polska-2038-pro/
-├── src/
-│   ├── components/          # React UI components (21 sekcji)
-│   │   ├── HeroSection.jsx
-│   │   ├── TechStackSection.jsx     # 6-warstwowy stack tech
-│   │   ├── EndorsementsSection.jsx  # PZPN, UEFA, FIFA, MSiT
-│   │   ├── MediaBuzzSection.jsx     # Media buzz + sponsorzy
-│   │   ├── ScoutDemoSection.jsx     # Demo karty talentu
-│   │   ├── RoiCalculator.jsx        # Interaktywny kalkulator ROI
-│   │   └── ...
-│   ├── data/
-│   │   └── systemData.js    # Centralne dane systemu
-│   └── hooks/
-│       └── useCountUp.js    # Custom hooks
-├── backend/                 # FastAPI + PostgreSQL (w rozwoju)
-│   └── migrations/
-├── docs/                    # Dokumentacja techniczna
-│   ├── ARCHITECTURE.md
-│   ├── API.md
-│   └── PRIVACY.md
-├── public/
-└── README.md
-```
-
----
-
-## 🏆 Endorsementy i Partnerzy
-
-| Organizacja | Status | Zakres |
-|---|---|---|
-| ⚽ PZPN | Rozmowy o pilotażu | 3 województwa, 18+ akademii |
-| 🏛️ Ministerstwo Sportu i Turystyki | Pilotaż Q1 2026 | 50 Orlików, SportPL2030 |
-| 🏆 UEFA | Obserwuje jako EU template | 55 federacji, EU-wide potencjał |
-| 🌍 FIFA | Kontakt Q1 2026 | FIFA Forward Programme |
-| ⭐ Fundacja R. Lewandowskiego | Partnerstwo ambasadorskie | Ambasador globalny |
-| 💻 Ministerstwo Cyfryzacji | Program Polska.AI | KPO 4,4 MLD PLN |
-| 👟 Adidas / Nike | Zainteresowanie sponsorskie | Co-branding, granty |
-| ☁️ Google Cloud | Tech Partner | BigQuery, Vertex AI |
-
----
-
-## 🛠️ Uruchomienie lokalne
+## Uruchomienie lokalne
 
 ```bash
-# Klonowanie
-git clone https://github.com/projek-polska-2038/polska-2038-pro.git
-cd polska-2038-pro
-
-# Instalacja zależności
+git clone https://github.com/Polska-2038/projekt-polska-2038-pro.git
+cd projekt-polska-2038-pro
 npm install
-
-# Uruchomienie dev
 npm run dev
-
-# Build produkcyjny
-npm run build
 ```
 
-### Wymagania
-- Node.js 20+
-- npm 9+
-- (Backend) Python 3.11+, PostgreSQL 16+, PostGIS 3.4
+Backend (opcjonalnie):
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+Zmienne środowiskowe: `.env.example`, `backend/.env.example`. Więcej: [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**Wymagania:** Node.js 20+, Python 3.11+ (backend).
 
 ---
 
-## 📊 Roadmap
+## Prawo i prywatność
 
-| Etap | Data | Status |
-|---|---|---|
-| MVP + Demo Platform | Q4 2025 | ✅ Gotowe |
-| Pilotaż 50 Orlików | Q1–Q2 2026 | 🔄 W toku |
-| Integracja PZPN API | Q3 2026 | 📅 Planowane |
-| Wdrożenie 500 Orlików | Q2 2027 | 📅 Planowane |
-| Euro 2028 — selekcja | 2028 | 🎯 Cel |
-| MŚ 2030 deadline | 2030 | 🎯 Cel |
-| **#Polska2038** | **2038** | **🏆 Wizja** |
+| Dokument | Gdzie |
+|----------|--------|
+| Polityka prywatności | https://polska2038.pl/polityka-prywatnosci |
+| Polityka cookies | https://polska2038.pl/polityka-cookies |
+| Regulamin | https://polska2038.pl/regulamin |
+| Repozytorium | [DISCLAIMER.md](DISCLAIMER.md) |
 
----
-
-## 👥 Zespół
-
-| Rola | Obszar |
-|---|---|
-| **Lead Architect** | LiDAR Infrastructure & Edge AI |
-| **ML Engineer** | BiomechAI EnsembleScorer · Federated Learning |
-| **Backend Engineer** | FastAPI · PostgreSQL · PostGIS · TimescaleDB |
-| **Frontend Engineer** | React 18 · Vite · Framer Motion · Tailwind |
-| **Data Engineer** | ETL · pg_vector · GeoJSON · API design |
-| **Privacy Engineer** | GDPR Art.25 · k-anonymity · ISO 27001 |
+Kontakt RODO / prawny: **polska2038@proton.me**
 
 ---
 
-## 🗺️ Dane mapy województw (panel)
+## Licencje
 
-Uproszczone granice w pliku `public/geo/wojewodztwa-min.geojson` pochodzą z projektu **[polska-geojson](https://github.com/ppatrzyk/polska-geojson)** (© Piotr Patrzyk, licencja **MIT**). Pełny tekst licencji: [`public/geo/LICENSE-polska-geojson.txt`](public/geo/LICENSE-polska-geojson.txt).
+| Zakres | Licencja |
+|--------|----------|
+| Kod źródłowy | [MIT](LICENSE) |
+| Teksty programu, materiały koncepcyjne w repo | [CC BY 4.0](LICENSE-MATERIALS.md) |
+| Mapa województw | MIT — [public/geo/LICENSE-polska-geojson.txt](public/geo/LICENSE-polska-geojson.txt) |
 
----
-
-## 📄 Licencja
-
-Rdzeń platformy dostępny na licencji **MIT** — transparentność buduje zaufanie federacji i inwestorów.
-
-Moduły komercyjne (BiomechAI Engine, Digital Twin, Federated Pipeline) — licencja proprietary.
+Przy forkach: zachowaj informację o MIT; przy publikacji adaptacji tekstów — podaj autorstwo #Polska2038 (CC BY). Nie sugeruj oficjalnego poparcia federacji bez umowy.
 
 ---
 
-## 📞 Kontakt
+## Kontakt
 
-- 🌐 Demo: [projek-polska-2038.github.io/polska-2038-pro](https://projek-polska-2038.github.io/polska-2038-pro/)
-- 📧 Email: kontakt@polska2038.pl
-- 🐦 X/Twitter: [@Polska2038](https://x.com/polska2038)
-- 💼 LinkedIn: [linkedin.com/company/polska2038](https://linkedin.com/company/polska2038)
-- 🏛️ GitHub: [github.com/projek-polska-2038](https://github.com/projek-polska-2038)
+- 🌐 **Demo:** https://polska2038.pl  
+- 📧 **E-mail:** polska2038@proton.me  
+- 🐦 **X:** [@Polska2038](https://x.com/polska2038)  
+- 💻 **GitHub:** [Polska-2038/projekt-polska-2038-pro](https://github.com/Polska-2038/projekt-polska-2038-pro)
 
 ---
 
-> *Projekt ma charakter koncepcyjno-demonstracyjny. Dane techniczne, partnerstwa i cytaty mają charakter poglądowy i ilustrują docelowy zasięg systemu.*
-
-**Zbudowane z ❤️ dla polskiego sportu. 🇵🇱**
-
+*Zbudowane pro bono dla polskiego sportu. 🇵🇱*
