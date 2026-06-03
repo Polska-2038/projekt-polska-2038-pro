@@ -3,6 +3,7 @@
 | Dokument | Opis |
 |----------|------|
 | [../INSPIRATION.md](../INSPIRATION.md) | Wizja vs kod vs wdrożenie — **start tutaj** |
+| [SEO.md](SEO.md) | Indeksowanie w Google (Search Console, sitemap) |
 | [../CONTRIBUTING.md](../CONTRIBUTING.md) | Fork, dev setup, pull requesty |
 | [../DISCLAIMER.md](../DISCLAIMER.md) | Zastrzeżenia prawne repozytorium |
 | [../LICENSE](../LICENSE) | MIT — kod |

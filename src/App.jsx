@@ -23,6 +23,7 @@ import NotFoundPage       from './pages/NotFoundPage';
 import LegalPage          from './pages/LegalPage';
 import CookieBanner from './components/CookieBanner';
 import AnalyticsGate from './components/AnalyticsGate';
+import SeoManager from './components/SeoManager';
 
 // Protected pages
 import ScoutPanel from './pages/ScoutPanel';
@@ -49,6 +50,7 @@ export default function App() {
 
   return (
     <LanguageProvider initialLang={initialLang}>
+      <SeoManager />
       <AuthProvider>
         <Routes>
           {/* ── Public ───────────────────────────────── */}

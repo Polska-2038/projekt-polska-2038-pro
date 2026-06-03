@@ -1,54 +1,58 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { PRERENDER_ROUTES, SEO_BY_PATH, SITE_URL, buildCanonicalUrl } from '../src/seo/routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const projectRoot = path.resolve(__dirname, '..');
-const publicDir = path.join(projectRoot, 'public');
+const publicDir = path.join(path.resolve(__dirname, '..'), 'public');
 const outPath = path.join(publicDir, 'sitemap.xml');
 
-const baseUrl = 'https://polska2038.pl';
-
-// Keep in sync with scripts/prerender.mjs
-const routes = [
-  '/',
-  '/en',
-  '/login',
-  '/mapa-talentow',
-  '/technologia',
-  '/reforma',
-  '/reforma/dokumenty',
-  '/reforma/en',
-  '/dla-kogo',
-  '/dla-federacji',
-  '/wyniki',
-  '/partnerzy',
-  '/kontakt',
-  '/o-programie',
-  '/polityka-prywatnosci',
-  '/polityka-cookies',
-  '/regulamin',
-  '/en/polityka-prywatnosci',
-  '/en/polityka-cookies',
-  '/en/regulamin',
-];
-
 const lastmod = new Date().toISOString().slice(0, 10);
-const urls = routes.map((r) => {
-  const loc = r === '/' ? baseUrl : `${baseUrl}${r}`;
+
+function hreflangLinks(route) {
+  const seo = SEO_BY_PATH[route];
+  if (!seo) return '';
+  const lines = [];
+  if (seo.alternatePl) {
+    lines.push(
+      `    <xhtml:link rel="alternate" hreflang="pl" href="${buildCanonicalUrl(seo.alternatePl)}" />`,
+    );
+  }
+  if (seo.alternateEn) {
+    lines.push(
+      `    <xhtml:link rel="alternate" hreflang="en" href="${buildCanonicalUrl(seo.alternateEn)}" />`,
+    );
+  }
+  if (seo.alternatePl || seo.alternateEn) {
+    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}" />`);
+  }
+  return lines.join('\n');
+}
+
+const urls = PRERENDER_ROUTES.map((route) => {
+  const seo = SEO_BY_PATH[route] || {};
+  const loc = buildCanonicalUrl(route);
+  const priority = seo.priority ?? 0.5;
+  const changefreq = seo.changefreq ?? 'monthly';
+  const alt = hreflangLinks(route);
   return [
     '  <url>',
     `    <loc>${loc}</loc>`,
     `    <lastmod>${lastmod}</lastmod>`,
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority.toFixed(2)}</priority>`,
+    alt,
     '  </url>',
-  ].join('\n');
+  ]
+    .filter(Boolean)
+    .join('\n');
 });
 
 const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
   ...urls,
   '</urlset>',
   '',
@@ -56,5 +60,4 @@ const xml = [
 
 fs.mkdirSync(publicDir, { recursive: true });
 fs.writeFileSync(outPath, xml, 'utf8');
-console.log(`[sitemap] wrote ${routes.length} routes to ${outPath}`);
-
+console.log(`[sitemap] wrote ${PRERENDER_ROUTES.length} routes to ${outPath}`);

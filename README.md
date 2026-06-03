@@ -103,6 +103,8 @@ Zmienne środowiskowe: `.env.example`, `backend/.env.example`. Więcej: [CONTRIB
 
 Kontakt RODO / prawny: **polska2038@proton.me**
 
+**Google:** po deployu skonfiguruj Search Console — instrukcja w [docs/SEO.md](docs/SEO.md).
+
 ---
 
 ## Licencje

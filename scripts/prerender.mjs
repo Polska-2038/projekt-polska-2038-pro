@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
+import { PRERENDER_ROUTES, injectSeoIntoHtml } from '../src/seo/routes.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,29 +9,6 @@ const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
 const distDir = path.join(projectRoot, 'dist');
 const templatePath = path.join(distDir, 'index.html');
-
-const routes = [
-  '/',
-  '/en',
-  '/login',
-  '/mapa-talentow',
-  '/technologia',
-  '/reforma',
-  '/reforma/dokumenty',
-  '/reforma/en',
-  '/dla-kogo',
-  '/dla-federacji',
-  '/wyniki',
-  '/partnerzy',
-  '/kontakt',
-  '/o-programie',
-  '/polityka-prywatnosci',
-  '/polityka-cookies',
-  '/regulamin',
-  '/en/polityka-prywatnosci',
-  '/en/polityka-cookies',
-  '/en/regulamin',
-];
 
 function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
@@ -46,41 +24,6 @@ function injectAppHtml(html, appHtml) {
   return html.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
 }
 
-function postProcess(route, html) {
-  const isEn = route === '/en';
-  const lang = isEn ? 'en' : 'pl';
-  const locale = isEn ? 'en_US' : 'pl_PL';
-  const url = isEn ? 'https://polska2038.pl/en' : 'https://polska2038.pl';
-
-  let out = html;
-  out = out.replace(/<html lang="[^"]*">/i, `<html lang="${lang}">`);
-  out = out.replace(/<meta property="og:locale" content="[^"]*"\s*\/?>/i, `<meta property="og:locale" content="${locale}" />`);
-  out = out.replace(/<meta property="og:url" content="[^"]*"\s*\/?>/i, `<meta property="og:url" content="${url}" />`);
-  out = out.replace(/<link rel="canonical" href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${url}" />`);
-
-  if (isEn) {
-    const title = '#Polska2038 — National Football OS | LiDAR + AI + PostGIS';
-    const desc = 'Polska2038 — National football operating system. LiDAR + AI + PostGIS. 5M talents tracked in real time. Equal opportunity from grassroots to the national team.';
-    const ogTitle = '#Polska2038 — National Football OS v2.0';
-    const ogDesc = 'LiDAR + AI + PostGIS. 5M talents tracked in real time. 370% ROI. No talent is missed.';
-    const keywords = 'Polska2038, LiDAR, AI, scouting, talent, football, federation, PostGIS, real-time';
-    const imgAlt = '#Polska2038 — National football operating system. LiDAR + AI + PostGIS.';
-
-    out = out.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
-    out = out.replace(/<meta name="description" content="[^"]*"\s*\/?>/i, `<meta name="description" content="${desc}" />`);
-    out = out.replace(/<meta name="keywords" content="[^"]*"\s*\/?>/i, `<meta name="keywords" content="${keywords}" />`);
-
-    out = out.replace(/<meta property="og:title" content="[^"]*"\s*\/?>/i, `<meta property="og:title" content="${ogTitle}" />`);
-    out = out.replace(/<meta property="og:description" content="[^"]*"\s*\/?>/i, `<meta property="og:description" content="${ogDesc}" />`);
-    out = out.replace(/<meta property="og:image:alt" content="[^"]*"\s*\/?>/i, `<meta property="og:image:alt" content="${imgAlt}" />`);
-
-    out = out.replace(/<meta name="twitter:title" content="[^"]*"\s*\/?>/i, `<meta name="twitter:title" content="${ogTitle}" />`);
-    out = out.replace(/<meta name="twitter:description" content="[^"]*"\s*\/?>/i, `<meta name="twitter:description" content="${ogDesc}" />`);
-  }
-
-  return out;
-}
-
 async function main() {
   if (!fs.existsSync(templatePath)) {
     throw new Error(`Missing template: ${templatePath}`);
@@ -88,7 +31,6 @@ async function main() {
 
   const template = fs.readFileSync(templatePath, 'utf8');
 
-  // Load SSR bundle produced by `vite build --ssr`.
   const ssrEntry = path.join(distDir, 'server', 'entry-server.js');
   if (!fs.existsSync(ssrEntry)) {
     throw new Error(`Missing SSR bundle: ${ssrEntry}`);
@@ -99,21 +41,19 @@ async function main() {
     throw new Error('SSR entry does not export render(url)');
   }
 
-  for (const r of routes) {
+  for (const r of PRERENDER_ROUTES) {
     const { appHtml } = await mod.render(r);
     const outPath = routeToOutPath(r);
     ensureDir(path.dirname(outPath));
-    const html = postProcess(r, injectAppHtml(template, appHtml));
+    const html = injectSeoIntoHtml(injectAppHtml(template, appHtml), r);
     fs.writeFileSync(outPath, html, 'utf8');
   }
 
-  // 404 page for static hosts
   fs.writeFileSync(path.join(distDir, '404.html'), fs.readFileSync(path.join(distDir, 'index.html'), 'utf8'), 'utf8');
-  console.log(`[prerender] rendered ${routes.length} routes`);
+  console.log(`[prerender] rendered ${PRERENDER_ROUTES.length} routes`);
 }
 
 main().catch((e) => {
   console.error('[prerender] failed', e);
   process.exit(1);
 });
-

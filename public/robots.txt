@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /panel
+Disallow: /login
+Disallow: /en/login
 
 Sitemap: https://polska2038.pl/sitemap.xml
-

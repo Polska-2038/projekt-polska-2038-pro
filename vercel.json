@@ -11,6 +11,14 @@
       "use": "@vercel/python"
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.polska2038.pl" }],
+      "destination": "https://polska2038.pl/:path*",
+      "permanent": true
+    }
+  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/index.py" },
     { "handle": "filesystem" },
