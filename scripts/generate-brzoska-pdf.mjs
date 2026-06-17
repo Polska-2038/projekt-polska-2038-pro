@@ -10,7 +10,7 @@ import { spawnSync } from 'child_process';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const htmlPath = path.join(root, 'docs', 'outreach', 'brzoska-narodowy-os-pilka.html');
-const outDir = path.join(root, 'public', 'docs');
+const outDir = path.join(root, 'docs', 'outreach');
 const pdfPath = path.join(outDir, 'polska2038-brief-brzoska.pdf');
 
 if (!fs.existsSync(htmlPath)) {

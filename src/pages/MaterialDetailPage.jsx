@@ -64,15 +64,6 @@ export default function MaterialDetailPage() {
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
-              {material.pdfUrl && (
-                <a
-                  href={material.pdfUrl}
-                  download
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-red text-white hover:bg-red-600 rounded-xl font-mono font-bold text-sm transition-colors"
-                >
-                  <Download className="w-4 h-4" /> PDF
-                </a>
-              )}
               <button
                 onClick={() => window.print()}
                 className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-700 text-gray-200 hover:text-white hover:border-gray-500 rounded-xl font-mono text-sm transition-colors"

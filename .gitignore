@@ -12,3 +12,6 @@ __pycache__/
 *.py[cod]
 backend/polska2038.db
 *.db
+
+# Outreach PDF (prywatne — nie na stronie)
+docs/outreach/*.pdf
