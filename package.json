@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/rasterize-og.mjs && node scripts/generate-sitemap.mjs && vite build && vite build --ssr src/entry-server.jsx --outDir dist/server && node scripts/prerender.mjs && node scripts/verify-seo-assets.mjs",
+    "pdf:brzoska": "node scripts/generate-brzoska-pdf.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

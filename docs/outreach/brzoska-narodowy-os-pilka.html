@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>POLSKA2038 — Narodowy System Operacyjny Polskiej Piłki | Brief dla Rafała Brzoski</title>
+  <style>
+    @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.45;
+      color: #1a1f2e;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page { page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+
+    /* Cover */
+    .cover {
+      min-height: 252mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 5px solid #c41e3a;
+      padding-top: 12mm;
+    }
+    .cover-meta { font-size: 8pt; letter-spacing: 0.12em; text-transform: uppercase; color: #64748b; }
+    .cover h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #0f172a;
+      margin: 8mm 0 4mm;
+      max-width: 95%;
+    }
+    .cover .subtitle {
+      font-size: 13pt;
+      font-weight: 400;
+      color: #475569;
+      margin-bottom: 10mm;
+    }
+    .cover-tagline {
+      font-size: 11pt;
+      color: #c41e3a;
+      font-weight: 600;
+      border-left: 3px solid #c41e3a;
+      padding-left: 4mm;
+      max-width: 85%;
+    }
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      margin-top: 12mm;
+    }
+    .cover-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 5mm;
+    }
+    .cover-card strong { display: block; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-bottom: 2mm; }
+    .cover-card span { font-size: 10pt; color: #0f172a; }
+    .cover-footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 5mm;
+      font-size: 8pt;
+      color: #64748b;
+    }
+
+    /* Content pages */
+    h2 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 7mm 0 3mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 2px solid #c41e3a;
+    }
+    h2:first-child { margin-top: 0; }
+    h3 {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #334155;
+      margin: 4mm 0 2mm;
+    }
+    p { margin-bottom: 2.5mm; color: #334155; }
+    ul { margin: 0 0 3mm 5mm; color: #334155; }
+    li { margin-bottom: 1.5mm; }
+    .lead { font-size: 10.5pt; color: #1e293b; font-weight: 500; margin-bottom: 4mm; }
+    .muted { font-size: 8pt; color: #64748b; }
+    .highlight {
+      background: #fef2f2;
+      border-left: 3px solid #c41e3a;
+      padding: 3mm 4mm;
+      margin: 4mm 0;
+      font-size: 9pt;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 3mm 0 5mm;
+      font-size: 8.5pt;
+    }
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 2.5mm 3mm;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f1f5f9; font-weight: 600; color: #0f172a; }
+    .kpi { font-weight: 700; color: #c41e3a; }
+    .arch-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin: 4mm 0;
+    }
+    .arch-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 3mm;
+      background: #fafafa;
+    }
+    .arch-item .num { font-size: 14pt; font-weight: 800; color: #c41e3a; line-height: 1; }
+    .arch-item .lbl { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #475569; margin: 1mm 0; }
+    .arch-item p { font-size: 8pt; margin: 0; }
+    .ask-box {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 5mm;
+      border-radius: 4px;
+      margin-top: 5mm;
+    }
+    .ask-box h3 { color: #fff; margin-top: 0; }
+    .ask-box p, .ask-box li { color: #cbd5e1; }
+    .ask-box ol { margin-left: 5mm; }
+    .disclaimer {
+      margin-top: 6mm;
+      padding-top: 3mm;
+      border-top: 1px solid #e2e8f0;
+      font-size: 7.5pt;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.5pt;
+      color: #94a3b8;
+      margin-bottom: 5mm;
+      padding-bottom: 2mm;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .page-header strong { color: #c41e3a; }
+  </style>
+</head>
+<body>
+
+  <!-- STRONA 1: OKŁADKA + PROBLEM -->
+  <section class="page cover">
+    <div>
+      <div class="cover-meta">Dokumentacja koncepcyjna · High-Level Summary · Maj 2026</div>
+      <h1>Narodowy System Operacyjny Polskiej Piłki</h1>
+      <p class="subtitle">POLSKA2038 — platforma danych i merytokracji w szkoleniu młodzieży</p>
+      <p class="cover-tagline">
+        Infrastruktura sportowa w Polsce rośnie szybciej niż warstwa decyzyjna oparta na danych.
+        Projekt POLSKA2038 uzupełnia „hardware” (boiska, akademie) o „software” — system skalowalny,
+        open-source i bezpłatny dla całego ekosystemu.
+      </p>
+      <div class="cover-grid">
+        <div class="cover-card">
+          <strong>Status</strong>
+          <span>Open Source · Pro Bono · 0 zł dla klubów</span>
+        </div>
+        <div class="cover-card">
+          <strong>Autorzy</strong>
+          <span>Zespół inicjatywy obywatelskiej POLSKA2038</span>
+        </div>
+        <div class="cover-card">
+          <strong>Demo &amp; kod</strong>
+          <span>polska2038.pl · GitHub (MIT)</span>
+        </div>
+        <div class="cover-card">
+          <strong>Kontakt</strong>
+          <span>polska2038@proton.me</span>
+        </div>
+      </div>
+    </div>
+    <div class="cover-footer">
+      Dokument przygotowany na potrzeby rozmowy strategicznej. Treści mają charakter koncepcyjny;
+      nie stanowią oferty handlowej ani oficjalnego stanowiska PZPN / MSiT.
+    </div>
+  </section>
+
+  <!-- STRONA 2: PROBLEM, ARCHITEKTURA, MVP -->
+  <section class="page">
+    <div class="page-header">
+      <span><strong>POLSKA2038</strong> · Brief strategiczny</span>
+      <span>Strona 2 / 3</span>
+    </div>
+
+    <h2>1. Problem, który rozwiązujemy</h2>
+    <p class="lead">
+      Polska inwestuje w infrastrukturę sportową (Orliki, akademie, obiekty), ale <strong>nie posiada
+      spójnej warstwy danych</strong> łączącej lokalny klub z selekcją regionalną i kadrą narodową.
+      Efekt: systematyczne <strong>marnowanie kapitału ludzkiego</strong> — talenty z mniejszych ośrodków
+      wypadają z pipeline’u, zanim zostaną zmierzone obiektywnie.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Obszar</th>
+          <th>Stan obecny</th>
+          <th>Koszt biznesowy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Selekcja młodzieży</td>
+          <td>Subiektywna ocena „na oko”, niska powtarzalność między regionami</td>
+          <td>Nierówny dostęp do ścieżki rozwoju; utrata talentów spóźnionego dojrzewania</td>
+        </tr>
+        <tr>
+          <td>Ciągłość danych</td>
+          <td>Brak cyfrowego paszportu zawodnika od Orlika do akademii</td>
+          <td>Każda zmiana klubu = utrata historii rozwoju</td>
+        </tr>
+        <tr>
+          <td>Analityka</td>
+          <td>GPS i video analytics dostępne głównie w elitarnych akademiach</td>
+          <td>Przepaść cyfrowa między Ekstraklasą a klubami lokalnymi</td>
+        </tr>
+        <tr>
+          <td>Jakość szkolenia</td>
+          <td>Ocena trenera często skorelowana z wynikiem drużyny, nie progressem jednostki</td>
+          <td>Zniekształcenie motywacji (gra pod wynik, nie rozwój)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Architektura rozwiązania (3 moduły)</h2>
+    <p>Platforma POLSKA2038 to <strong>rozproszony system operacyjny sportu</strong> — nie aplikacja jednego klubu, lecz standard interoperacyjny dla całego kraju.</p>
+
+    <div class="arch-box">
+      <div class="arch-item">
+        <div class="num">A</div>
+        <div class="lbl">Talent Map &amp; Digital Passport</div>
+        <p>Chmurowa baza profili zawodników (motoryka, statystyki meczowe, historia medyczna). Dane podążają za zawodnikiem — RODO-by-design, zgoda opiekuna.</p>
+      </div>
+      <div class="arch-item">
+        <div class="num">B</div>
+        <div class="lbl">AI Video Analytics</div>
+        <p>Computer Vision na obrazie z kamer boiska / smartfona: heatmapy, sprinty, wektory ruchu — bez drogich czujników per zawodnik na etapie pilotażu.</p>
+      </div>
+      <div class="arch-item">
+        <div class="num">C</div>
+        <div class="lbl">Coach Merit Index</div>
+        <p>Mierzalny progres wychowanków w czasie (nie wynik meczu). Audyt zewnętrzny (np. AWF) jako warstwa governance — zgodnie z filarem reformy #Polska2038.</p>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>Model ekonomiczny:</strong> 0 zł dla klubów — open source (MIT), hosting i pilotaż finansowany
+      partnerami publicznymi / pro bono. Bariera wejścia to wdrożenie procesowe, nie licencja SaaS.
+    </div>
+
+    <h2>3. MVP i pilotaż (10 klubów bez czekania na cały PZPN)</h2>
+    <p>Pierwsza wersja nie wymaga integracji z centralą federacji. Wystarczy <strong>koalicja chętnych akademii</strong> + jeden region pilotażowy.</p>
+    <table>
+      <thead>
+        <tr><th>Faza</th><th>Zakres</th><th>Czas</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>MVP 0</strong> (gotowe)</td>
+          <td>Demo platformy: mapa talentów, panel skauta, API, dokumentacja — polska2038.pl</td>
+          <td>Teraz</td>
+        </tr>
+        <tr>
+          <td><strong>MVP 1</strong></td>
+          <td>10 klubów · rejestr zawodników · ręczne + półautomatyczne metryki · raport kwartalny dla trenera</td>
+          <td>Q3–Q4 2026</td>
+        </tr>
+        <tr>
+          <td><strong>MVP 2</strong></td>
+          <td>Video AI na 3–5 boiskach · Coach Merit Index · dashboard dla samorządu / sponsora</td>
+          <td>2027</td>
+        </tr>
+        <tr>
+          <td><strong>Scale</strong></td>
+          <td>16 województw · standard API · opcjonalna integracja federacyjna</td>
+          <td>2028+</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- STRONA 3: KPI, SKALOWANIE, PROŚBA -->
+  <section class="page">
+    <div class="page-header">
+      <span><strong>POLSKA2038</strong> · Brief strategiczny</span>
+      <span>Strona 3 / 3</span>
+    </div>
+
+    <h2>4. Jak zmierzyć sukces (KPI pilotażu)</h2>
+    <table>
+      <thead>
+        <tr><th>Wskaźnik</th><th>Cel MVP 1 (10 klubów)</th><th>Dlaczego to ważne</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Profile zawodników w systemie</td>
+          <td class="kpi">≥ 500 aktywnych profili</td>
+          <td>Pokrycie kohorty U10–U15 w pilotażu</td>
+        </tr>
+        <tr>
+          <td>Czas od obserwacji do wpisu w bazie</td>
+          <td class="kpi">&lt; 72 h</td>
+          <td>Operacyjna przewaga nad „zeszytem trenera”</td>
+        </tr>
+        <tr>
+          <td>Udział talentów spoza TOP 5 miast w shortliście</td>
+          <td class="kpi">+30% vs. baseline</td>
+          <td>Demokratyzacja selekcji — core thesis projektu</td>
+        </tr>
+        <tr>
+          <td>Coach Merit Index — pokrycie</td>
+          <td class="kpi">100% trenerów pilotażu</td>
+          <td>Jakość szkolenia mierzona progressem, nie tabelą</td>
+        </tr>
+        <tr>
+          <td>Koszt wdrożenia per klub</td>
+          <td class="kpi">0 zł licencji</td>
+          <td>Skalowalność na regiony o niższych budżetach</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Skalowalność (logika InPost → logika POLSKA2038)</h2>
+    <ul>
+      <li><strong>Hub-and-spoke:</strong> centralna platforma (API, standardy danych) + lokalne węzły (kluby, samorządy) — bez monopolu na infrastrukturę.</li>
+      <li><strong>Network effects:</strong> im więcej klubów w sieci, tym lepsze benchmarki regionalne i trafniejsza selekcja.</li>
+      <li><strong>Open source jako polisa skalowania:</strong> każdy region może forkować i dostosować UI; rdzeń danych pozostaje wspólny.</li>
+      <li><strong>Ścieżka adopcji:</strong> pilotaż → case study → presja merytoryczna na struktury centralne (dane, nie polityka).</li>
+    </ul>
+
+    <h2>6. Stack technologiczny (stan demo)</h2>
+    <p class="muted">Produkcyjna architektura docelowa; obecnie działający prototyp open-source:</p>
+    <p>React + FastAPI · PostgreSQL / PostGIS (docelowo) · pipeline CV/ML jako osobny serwis · Vercel + RODO (zgody, polityka prywatności) · kod: github.com/Polska-2038/projekt-polska-2038-pro</p>
+
+    <div class="ask-box">
+      <h3>7. Czego szukamy od wizjonera technologicznego</h3>
+      <p>Nie prosimy o finansowanie — system budujemy pro bono. Prosimy o <strong>30–45 min rozmowy strategicznej</strong> w czterech obszarach:</p>
+      <ol>
+        <li><strong>Krytyka modelu skalowania</strong> — gdzie architektura hub-and-spoke ma luki operacyjne?</li>
+        <li><strong>Go-to-market pilotażu</strong> — jak skutecznie uruchomić 10 akademii bez mandatu centralnego (playbook adopcji B2B2G)?</li>
+        <li><strong>Metryki sukcesu</strong> — które KPI są wystarczające dla rady nadzorczej / sponsora publicznego?</li>
+        <li><strong>Skala 2038</strong> — co musi być prawdą technicznie, żeby reprezentacja miała zaplecze klasy światowej?</li>
+      </ol>
+    </div>
+
+    <p style="margin-top: 5mm;">
+      <strong>Kontakt:</strong> polska2038@proton.me · <strong>Web:</strong> https://polska2038.pl ·
+      <strong>Dokumentacja:</strong> polska2038.pl/reforma/dokumenty
+    </p>
+
+    <div class="disclaimer">
+      Inicjatywa POLSKA2038 ma charakter obywatelski i pro bono. Materiał nie stanowi oficjalnej komunikacji PZPN,
+      Ministerstwa Sportu ani InPost. Liczby i roadmapa mają charakter planowania scenariuszowego.
+      Kod źródłowy: licencja MIT. Treści koncepcyjne: CC BY 4.0.
+    </div>
+  </section>
+
+</body>
+</html>

@@ -110,6 +110,36 @@ export const MATERIALS = [
     txt: `PLAN WDROŻENIA — #Polska2038\n\n1) pilotaż\n2) procesy\n3) szkolenia\n4) rollout\n`,
   },
   {
+    slug: 'brief-brzoska',
+    title: 'Brief strategiczny — Narodowy OS Polskiej Piłki',
+    subtitle: '3 strony · PDF · rozmowa z wizjonerem technologicznym',
+    audience: 'Inwestorzy technologiczni · Architekci systemów · Partnerzy pilotażu',
+    sections: [
+      {
+        h: 'Dla kogo',
+        p: [
+          'Dokument high-level dla odbiorcy biznesowo-technologicznego: problem, architektura, MVP w 10 klubach, KPI, skalowanie.',
+          'Język startup / system design — bez narracji politycznej.',
+        ],
+      },
+      {
+        h: 'Zawartość',
+        p: [
+          'Diagnoza: infrastruktura bez warstwy danych.',
+          '3 moduły: Talent Map, AI Video Analytics, Coach Merit Index.',
+          'Pilotaż bez mandatu centralnego PZPN.',
+          'Prośba o krytykę modelu skalowania i go-to-market.',
+        ],
+      },
+      {
+        h: 'Pobierz',
+        p: ['PDF: /docs/polska2038-brief-brzoska.pdf'],
+      },
+    ],
+    txt: `BRIEF STRATEGICZNY — POLSKA2038\n\nNarodowy System Operacyjny Polskiej Piłki\nPDF: https://polska2038.pl/docs/polska2038-brief-brzoska.pdf\nKontakt: polska2038@proton.me\n`,
+    pdfUrl: '/docs/polska2038-brief-brzoska.pdf',
+  },
+  {
     slug: 'email-template',
     title: 'Instrukcja Wysyłki Email',
     subtitle: '1 strona · gotowy email',
